@@ -53,21 +53,25 @@
                 the different musical instruments.
              </p>
          </div>
-        
+        <!-- form Sign in -->
          <form id="signin" class=" bg-white col-lg-5  mb-lg-0 position-relative  p-4">
             <div class="row mb-3 ">
                 
               <div class="">
-                <input type="email" class="form-control" id="inputEmail3"> 
+                <input type="email" class="form-control" onkeyup="validate_email()" id="emailaddressi"> 
                 <label class="">Email address</label> 
+                <span class="text-danger"  id="erreuremailin" style="display:none"> email not exact</span>
+                <span class="text-success"  id="successemailin" style="display:none">email Exact</span>
               </div>
              
             </div>
             <div class="row mb-3">
               
               <div class="">
-                <input type="password" class="form-control" id="inputPassword3">
+                <input type="password" class="form-control" onkeyup="validate_pw()" id="passwordi">
                 <label >Password</label>
+                
+              
               </div>
             </div>
             
@@ -76,44 +80,51 @@
                   <a href="">Mot de passe oublié?</a> 
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="submit" class="btn btn-primary" id="btnbuttonin" disabled>Sign in</button>
          </form>
+         <!-- form Sign up -->
          <form style="display:none ;" id="signup" class=" bg-white col-lg-5  mb-lg-0 position-relative  p-4">
             <div class="row  ">
                 
                <div class="col-6">
-                 <input type="email" class="form-control" id="inputEmail3"> 
+                 <input type="text" class="form-control" onkeyup="validate_first()" id="firstnameu"> 
                  <label class="">First Name</label> 
+                 <span class="text-danger"  id="erreurfirst" style="display:none"> firstname not exact</span>
+                 <span class="text-success"  id="successfirst" style="display:none">firstname Exact</span>
                </div>
-              
-           
-                
                <div class="col-6">
-                 <input type="email" class="form-control" id="inputEmail3"> 
+                 <input type="text" class="form-control" onkeyup="validate_last()" id="lastnameu"> 
                  <label class="">Last Name</label> 
+                 <span class="text-danger"  id="erreurlast" style="display:none"> lastname not exact</span>
+                 <span class="text-success"  id="successlast" style="display:none">lastname Exact</span>
                </div>
               
              </div>
             <div class="row mb-3 ">
                 
               <div class="">
-                <input type="email" class="form-control" id="inputEmail3"> 
+                <input type="email" class="form-control" onkeyup=" validate_emailu()" id="emailaddressu"> 
                 <label class="">Email address</label> 
+                <span class="text-danger"  id="erreuremail" style="display:none"> email not exact</span>
+                <span class="text-success"  id="successemail" style="display:none">email Exact</span>
               </div>
-             
             </div>
             <div class="row mb-3">
               
               <div class="">
-                <input type="password" class="form-control" id="inputPassword3">
+                <input type="password" class="form-control" onkeyup="validate_pwu()" id="passwordu">
                 <label >Password</label>
+                <span class="text-danger"  id="erreurpass" style="display:none"> Password not exact</span>
+                <span class="text-success"  id="successpass" style="display:none">Password Exact</span>
               </div>
               <div class="">
-               <input type="password" class="form-control" id="inputPassword3">
+               <input type="password" class="form-control" onkeyup="validate_rpwu()" id="retypepasswordu">
                <label > Retype Password</label>
+               <span class="text-danger"  id="erreurpassword" style="display:none"> Password dont Match</span>
+               <span class="text-success"  id="successpassword" style="display:none">Password Match</span>
              </div>
             </div>
-            <button type="submit" class="btn btn-primary">Sign up</button>
+            <button type="submit" class="btn btn-primary" id="btnbuttomup" disabled>Sign up</button>
           </form>
         </div>
         </form>
