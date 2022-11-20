@@ -89,7 +89,7 @@ if (emailaddressi.value=="" || !emailaddressi.value.match(validRegex)){
     
     confirmemail=0;
     check_sign_in();
-   // btnbuttonin.setAttribute("disables");    
+   // btnbuttonin.setAttribute("disabled");    
 }else{
     erreuremailin.style.display="none";
     emailaddressi.className ="form-control border-success";
@@ -248,6 +248,22 @@ function check_sign_up(){
     else{
         btnbuttomup.disabled = true;
     }
+}
+function display(id,name,description,price,quantity,image,admin_id){
+    let name10                    = document.getElementById("name10");
+    let description10             = document.getElementById("description10");
+    let price10                   = document.getElementById("price10");
+    let quantity10                = document.getElementById("quantity10");
+    document.getElementById("tmp_image").value = image;
+    document.getElementById("id_i").value = id
+    name10.value             = name;
+    description10.value      = description;
+    price10.value            = price;
+    quantity10.value         = quantity;
+    
+    
+    
+
 }
 
 

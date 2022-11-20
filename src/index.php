@@ -1,3 +1,8 @@
+<?php
+include("scripts.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -34,7 +39,9 @@
       <aside>
 
       </aside>
+      
       <section class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+      
         <div class=" row gx-lg-5 align-item-center mb-5">
          <div class="col-lg-6 mb-5 mb-lg-0 ">
             <div class="" >
@@ -54,11 +61,11 @@
              </p>
          </div>
         <!-- form Sign in -->
-         <form id="signin" class=" bg-white col-lg-5  mb-lg-0 position-relative  p-4">
+         <form id="signin" action=""  method="POST"   class=" bg-white col-lg-5  mb-lg-0 position-relative  p-4">
             <div class="row mb-3 ">
                 
               <div class="">
-                <input type="email" class="form-control" onkeyup="validate_email()" id="emailaddressi"> 
+                <input type="email" class="form-control" name="emailaddressi" onkeyup="validate_email()" id="emailaddressi"> 
                 <label class="">Email address</label> 
                 <span class="text-danger"  id="erreuremailin" style="display:none"> email not exact</span>
                 <span class="text-success"  id="successemailin" style="display:none">email Exact</span>
@@ -68,7 +75,7 @@
             <div class="row mb-3">
               
               <div class="">
-                <input type="password" class="form-control" onkeyup="validate_pw()" id="passwordi">
+                <input type="password" class="form-control" name="passwordi" onkeyup="validate_pw()" id="passwordi">
                 <label >Password</label>
                 
               
@@ -80,30 +87,29 @@
                   <a href="">Mot de passe oublié?</a> 
               </div>
             </div>
-            <button type="submit" class="btn btn-primary" id="btnbuttonin" disabled>Sign in</button>
+            <button type="submit" name="sign-in" class="btn btn-primary" id="btnbuttonin" disabled>Sign in</button>
          </form>
          <!-- form Sign up -->
-         <form style="display:none ;" id="signup" class=" bg-white col-lg-5  mb-lg-0 position-relative  p-4">
+         <form action="index.php" method="POST" style="display:none ;" id="signup" class=" bg-white col-lg-5  mb-lg-0 position-relative  p-4">
             <div class="row  ">
                 
                <div class="col-6">
-                 <input type="text" class="form-control" onkeyup="validate_first()" id="firstnameu"> 
+                 <input type="text" class="form-control" onkeyup="validate_first()" id="firstnameu" name="firstname"> 
                  <label class="">First Name</label> 
                  <span class="text-danger"  id="erreurfirst" style="display:none"> firstname not exact</span>
                  <span class="text-success"  id="successfirst" style="display:none">firstname Exact</span>
                </div>
                <div class="col-6">
-                 <input type="text" class="form-control" onkeyup="validate_last()" id="lastnameu"> 
+                 <input type="text" class="form-control" onkeyup="validate_last()" id="lastnameu" name="lastname"> 
                  <label class="">Last Name</label> 
                  <span class="text-danger"  id="erreurlast" style="display:none"> lastname not exact</span>
                  <span class="text-success"  id="successlast" style="display:none">lastname Exact</span>
                </div>
-              
-             </div>
+      
             <div class="row mb-3 ">
                 
               <div class="">
-                <input type="email" class="form-control" onkeyup=" validate_emailu()" id="emailaddressu"> 
+                <input type="email" class="form-control" onkeyup=" validate_emailu()" id="emailaddressu" name="emailaddress"> 
                 <label class="">Email address</label> 
                 <span class="text-danger"  id="erreuremail" style="display:none"> email not exact</span>
                 <span class="text-success"  id="successemail" style="display:none">email Exact</span>
@@ -112,19 +118,19 @@
             <div class="row mb-3">
               
               <div class="">
-                <input type="password" class="form-control" onkeyup="validate_pwu()" id="passwordu">
+                <input type="password" class="form-control" onkeyup="validate_pwu()" id="passwordu" name="password">
                 <label >Password</label>
                 <span class="text-danger"  id="erreurpass" style="display:none"> Password not exact</span>
                 <span class="text-success"  id="successpass" style="display:none">Password Exact</span>
               </div>
               <div class="">
-               <input type="password" class="form-control" onkeyup="validate_rpwu()" id="retypepasswordu">
+               <input type="password" class="form-control" onkeyup="validate_rpwu()" id="retypepasswordu" name="retypepassword">
                <label > Retype Password</label>
                <span class="text-danger"  id="erreurpassword" style="display:none"> Password dont Match</span>
                <span class="text-success"  id="successpassword" style="display:none">Password Match</span>
              </div>
             </div>
-            <button type="submit" class="btn btn-primary" id="btnbuttomup" disabled>Sign up</button>
+            <button type="submit" class="btn btn-primary" name="sign-up" id="btnbuttomup" disabled>Sign up</button>
           </form>
         </div>
         </form>
