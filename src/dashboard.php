@@ -29,7 +29,7 @@ else{
    </head>
    <body style="background-color: #cfe2ff" class="">
       <header>
-         <nav class="w-100">
+         <nav class= "navbar w-100">
             <div class="container-fluid d-flex" style="justify-content: space-between; width: 95%; margin-right: auto">
                <div class="d-flex mt-2">
                   <i style="font-size: 30px" class="bi bi-file-earmark-music-fill icon-music "></i>
@@ -42,16 +42,16 @@ else{
                         <h5 class="me-2" ><?php echo $_SESSION["admin_last"]?></h5>  
                      </div>
                       
-                     <div class="btn-group dropstart min-w-300px">
+                     <div class="btn-group dropstart">
                         <img  class="rounded-circle mt-2 "style="width: 55px;"src="img/connecter.jpg " alt="" data-bs-toggle="dropdown" aria-expanded="false" />
-                        <ul class=" dropdown-menu ps-2  ">
-                            <li class="list-group-item"> <a  aria-pressed="true"  data-bs-toggle="modal" data-bs-target="#exampleModal1" href="">Show & Edit Account</a></li>
+                         <ul class=" dropdown-menu   ">
+                            <li class="list-group-item"> <a  class="text-decoration-none" aria-pressed="true"  data-bs-toggle="modal" data-bs-target="#exampleModal1" href="">Show & Edit Account</a></li>
                            <hr>
-                           <li class="list-group-item"> <a  aria-pressed="true"  data-bs-toggle="modal" data-bs-target="#exampleModal2" href="">Change password</a> </li>
+                           <li class="list-group-item"> <a class="text-decoration-none" aria-pressed="true"  data-bs-toggle="modal" data-bs-target="#exampleModal2" href="">Change password</a> </li>
                            <hr>
-                           <li class="list-group-item"> <a aria-pressed="true"  data-bs-toggle="modal" data-bs-target="#exampleModal3" href="">Delete Account</a> </li>
+                           <li class="list-group-item"> <a class="text-decoration-none" aria-pressed="true"  data-bs-toggle="modal" data-bs-target="#exampleModal3" href="">Delete Account</a> </li>
                            <hr>
-                           <li class="list-group-item"> <a href="logout.php">Log out</a> </li>
+                           <li class="list-group-item"> <a class="text-decoration-none" href="logout.php">Log out</a> </li>
                            <hr>
                          </ul>
                      </div>
@@ -168,7 +168,7 @@ else{
                      height: 120px;
                      width: 95%;
                      margin: auto;
-                     background-image: url('img/piano-et-violon-837x400.png');
+                     background-image: url('img/music.jpg');
                      background-size: cover;
                      background-position: center;
                   "
@@ -179,7 +179,7 @@ else{
                <div class="col-12 col-md-3 ">
                   <div class="card">
                      <div class="card-header row">
-                        <div class="col-8 "  data-bs-toggle="modal" data-bs-target="#exampleModal4" >
+                        <div class="col-8 "  data-bs-toggle="modal"  >
                            <h4 class="card-title">
                               $ <br />
                               Total Sales
@@ -199,45 +199,6 @@ else{
                            <h5 class="modal-title" id="exampleModalLabel">Total Sales</h5>
                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                              <table class="table mt-4 rounded-2" style="background-color: #343a40; color: white">
-                                 <thead>
-                                    <tr>
-                                       <th scope="col">#</th>
-                                       <th scope="col">Name</th> 
-                                       <th scope="col">Price</th>
-                                       <th scope="col">Quantity</th>
-                                       <th scope="col">Total Price</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr>
-                                       <th scope="row">1</th>
-                                       <td>Mark</td>
-                                       <td>Otto</td>
-                                       <td>@mdo</td>
-                                       <td>@mdo</td>
-                                       
-                                       
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">2</th>
-                                       <td>Jacob</td>
-                                       <td>Thornton</td>
-                                       <td>@fat</td>
-                                       <td>@fat</td>
-                                       
-                                      
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">3</th>
-                                       <td colspan="2">Larry the Bird</td>
-                                       <td>@twitter</td>
-                                    </tr>
-                                 </tbody>
-                              </table>
-                           
-                        </div>
                         <div class="modal-footer" id="modal_footer">
                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                            <button type="button" class="btn btn-primary" onclick="ajouter()" data-bs-dismiss="modal">Save</button>
@@ -245,7 +206,7 @@ else{
                      </div>
                   </div>
                </div>
-               <div class="col-12 col-md-3 ">
+               <div class="col-12 col-md-3">
                   <div class="card">
                      <div class="card-header row">
                         <div class="col-8">
@@ -289,34 +250,21 @@ else{
                                        <th scope="col">#    </th>
                                        <th scope="col">Name </th> 
                                        <th scope="col">Email</th>
-                                       <th scope="col">Photo</th>
                                        
                                     </tr>
                                  </thead>
                                  <tbody>
-                                    <tr>
-                                       <th scope="row">1</th>
-                                       <td>Mark</td>
-                                       <td>Otto</td>
-                                       <td>@mdo</td>
-                                      
-                                       
-                                       
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">2</th>
-                                       <td>Jacob</td>
-                                       <td>Thornton</td>
-                                       <td>@fat</td>
-                                       
-                                       
-                                      
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">3</th>
-                                       <td colspan="2">Larry the Bird</td>
-                                       <td>@twitter</td>
-                                    </tr>
+                                 <?php 
+                        $result = display_Admins($con);
+                        $x=1;
+                        while($row  =mysqli_fetch_assoc($result)){?>
+                        <tr>
+                           <th scope="row"><?php echo $x;?></th>
+                           <td><p class="text-truncate"style="width:200px" ><?php echo $row["first_name"]." ".$row["last_name"]?></p></td>
+                           <td><p class="text-truncate"style="width:200px" ><?php echo $row["email"]?></p></td>
+   
+                        </tr>
+                        <?php $x++;} ?>
                                  </tbody>
                               </table>
                            
@@ -331,7 +279,7 @@ else{
                <div class="col-12 col-md-3 mb-2">
                   <div class="card">
                      <div class="card-header row">
-                        <div class="col-8" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                        <div class="col-8" data-bs-toggle="modal" >
                            <h4 class="card-title">
                               $ <br />
                               Sales Today
@@ -344,59 +292,6 @@ else{
                   </div>
                </div>
                <!-- modal statistique today -->
-               <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div  class="modal-dialog modal-xl">
-                     <div class="modal-content">
-                        <div class="modal-header"  >
-                           <h5 class="modal-title" id="exampleModalLabel"> Sales Today</h5>
-                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                              <table class="table mt-4 rounded-2" style="background-color: #343a40; color: white">
-                                 <thead>
-                                    <tr>
-                                       <th scope="col">#</th>
-                                       <th scope="col">Name</th> 
-                                       <th scope="col">Price</th>
-                                       <th scope="col">Quantity</th>
-                                       <th scope="col">Total Price</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr>
-                                       <th scope="row">1</th>
-                                       <td>Mark</td>
-                                       <td>Otto</td>
-                                       <td>@mdo</td>
-                                       <td>@mdo</td>
-                                       
-                                       
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">2</th>
-                                       <td>Jacob</td>
-                                       <td>Thornton</td>
-                                       <td>@fat</td>
-                                       <td>@fat</td>
-                                       
-                                      
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">3</th>
-                                       <td colspan="2">Larry the Bird</td>
-                                       <td>@twitter</td>
-                                    </tr>
-                                 </tbody>
-                              </table>
-                           
-                        </div>
-                        <div class="modal-footer" id="modal_footer">
-                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                           <button type="button" class="btn btn-primary" onclick="ajouter()" data-bs-dismiss="modal">Save</button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
             </div>
             <div style="width: 95%; margin: auto">
                <div>
@@ -474,12 +369,20 @@ else{
                         while($row  =mysqli_fetch_assoc($result)){?>
                         <tr>
                            <th scope="row">1</th>
-                           <td><?php echo $row["name"]?></td>
-                           <td><?php echo $row["description"]?></td>
+                           <td><p class="text-truncate"style="width:200px" ><?php echo $row["name"]?></p></td>
+                           <td><p class="text-truncate"style="width:200px" ><?php echo $row["description"]?></p></td>
                            <td><?php echo $row["price"]?></td>
                            <td><?php echo $row["quantity"]?></td>                          
-                           <td><img style="width:60px; "  src="img/<?php echo $row["image"]?>"></td>
-                           <td class="d-flex"> <button data-bs-toggle="modal" data-bs-target="#exampleModal10" onclick="display(<?php echo $row['id'];?>,`<?php echo $row['name'];?>`,`<?php echo $row['description'];?>`,<?php echo $row['price'];?>,<?php echo $row['quantity']?>,`<?php echo $row['image'];?>`,<?php echo $row['id_admin'];?>);"  class="btn btn-primary">View & Edit </button> <form action="" method="POST"  >  <input type="hidden" name="id" value="<?php  echo $row['id'] ?> "> <button type="submit" name="delete" class="btn btn-danger">Delete</button></form></td>
+                           <td><img style="width:60px; higth:10px"  src="img/<?php echo $row["image"]?>"></td>
+                           <td class="d-flex">
+                               <button class="btn btn-primary me-1" data-bs-toggle="modal" data-bs-target="#exampleModal10" onclick="display(<?php echo $row['id'];?>,`<?php echo $row['name'];?>`,`<?php echo $row['description'];?>`,<?php echo $row['price'];?>,<?php echo $row['quantity']?>,`<?php echo $row['image'];?>`,<?php echo $row['id_admin'];?>);" >
+                                 View & Edit
+                               </button>
+                                <form action="" method="POST"  >
+                                   <input type="hidden" name="id" value="<?php  echo $row['id'] ?> ">
+                                    <button type="submit" name="delete" class="btn btn-danger">Delete</button>
+                                 </form>
+                           </td>
                         </tr>
                         <?php } ?>
                        
@@ -514,7 +417,7 @@ else{
                                  <div class="mb-3">
                                     <label for="recipient-name" class="col-form-label">Photo</label>
                                     <input type="file" accept="image/png ,image/jpg, image/jpeg" name="image" id="image10" name="photo"  >
-                                    <input type="hidden" name="tmp_image" id="tmp_image">
+                                    <input type="hidden" name="tmp_image" id="tmp_imagze">
                                     <input type="hidden" name="id_i" id="id_i">
                                  </div>
                              

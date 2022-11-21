@@ -255,7 +255,7 @@ function display(id,name,description,price,quantity,image,admin_id){
     let price10                   = document.getElementById("price10");
     let quantity10                = document.getElementById("quantity10");
     document.getElementById("tmp_image").value = image;
-    document.getElementById("id_i").value = id
+    document.getElementById("id_i").value = id // id_i = id instrument
     name10.value             = name;
     description10.value      = description;
     price10.value            = price;

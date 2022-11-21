@@ -9,6 +9,9 @@ if(isset($_POST['add']))            add($con);
 if(isset($_POST['afficher']))       afficher($con);
 if(isset($_POST['delete']))         delete($con);
 if(isset($_POST['edit']))         update($con);
+
+
+
 function signup($con){
     $firstname           =$_POST["firstname"];
     $lastname            =$_POST["lastname"];
@@ -98,7 +101,8 @@ function add($con) {
      }
 }
   function display($con) {
-        $sql = "SELECT * FROM instruments "; 
+        $admin_id=$_SESSION["admin_id"];
+        $sql = "SELECT * FROM instruments where id_admin = '$admin_id'"; 
         $result = $con->query($sql); 
         if ($result->num_rows > 0) {
         return $result;
@@ -107,8 +111,6 @@ function add($con) {
 }
 function delete($con)
     {
-        
-
         $id = $_POST['id'];
         $sql = "DELETE FROM instruments WHERE  id=$id";
         if(mysqli_query($con,$sql)){
@@ -139,6 +141,13 @@ function delete($con)
             echo "Error: " . $sql . "<br>" . mysqli_error($con);
          }
        
+    }
+    function display_Admins($con) {
+        $sql = "SELECT * FROM Admins "; 
+        $result = $con->query($sql); 
+        if ($result->num_rows > 0) {
+        return $result;
+        }
     }
 
 

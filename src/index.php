@@ -73,15 +73,11 @@ include("scripts.php");
              
             </div>
             <div class="row mb-3">
-              
               <div class="">
                 <input type="password" class="form-control" name="passwordi" onkeyup="validate_pw()" id="passwordi">
                 <label >Password</label>
-                
-              
               </div>
             </div>
-            
             <div class="row mb-3">
               <div class="">
                   <a href="">Mot de passe oublié?</a> 
