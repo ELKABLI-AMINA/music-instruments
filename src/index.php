@@ -44,16 +44,16 @@ include("scripts.php");
             <div class="">
                <h1 class="ms-3 mb-5">
                   <span class="ms-5">Welcome To</span> <br>
-                  Musical Instruments
+                  M |Instruments
                </h1>
             </div>
             <p>
-               Is there anyone who does not like music?Have you ever had a <br />
-               time when you were listening to a song and wondered what <br />
-               instrument was being played? Well, for all those interested in <br />
-               music, and all those keen on learning the names of all the <br />
-               musical instruments, this article would be a treat. Check out <br />
-               the article, build your vocabulary and have fun learning about <br />
+               Is there anyone who does not like music?Have you ever had a 
+               time when you were listening to a song and wondered what 
+               instrument was being played? Well, for all those interested in 
+               music, and all those keen on learning the names of all the 
+               musical instruments, this article would be a treat. Check out 
+               the article, build your vocabulary and have fun learning about 
                the different musical instruments.
             </p>
          </div>

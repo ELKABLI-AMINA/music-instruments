@@ -88,7 +88,7 @@ function add($con)
     $target                = "img/" . $image;
     $sourcepath            = $_FILES["image"]["tmp_name"];
     move_uploaded_file($sourcepath, $target);
-    $sql = "INSERT INTO instruments(	name , description,	price,	quantity,image,id_admin) VALUES ('$name','$description','$price','$quantity','$image','$id_admin')";
+    $sql = "INSERT INTO instruments(name , description,	price,	quantity,image,id_admin) VALUES ('$name','$description','$price','$quantity','$image','$id_admin')";
     $query = mysqli_query($con, $sql);
     if (isset($query)) {
     } else {
@@ -99,8 +99,8 @@ function display($con)
 {
     $admin_id = $_SESSION["admin_id"];
     $sql = "SELECT * FROM instruments where id_admin = '$admin_id'";
-    $result = $con->query($sql);
-    if ($result->num_rows > 0) {
+    $result = mysqli_query($con, $sql);
+    if (mysqli_num_rows($result) > 0) {
         return $result;
     }
 }
@@ -110,7 +110,7 @@ function delete($con)
     $sql = "DELETE FROM instruments WHERE  id=$id";
     if (mysqli_query($con, $sql)) {
     } else {
-        echo $con->error;
+        echo "Error: " . $sql . "<br>" . mysqli_error($con);
     }
 }
 function update($con)
@@ -138,7 +138,7 @@ function update($con)
 function display_Admins($con)
 {
     $sql = "SELECT * FROM Admins ";
-    $result = $con->query($sql);
+    $result = mysqli_query($con, $sql);
     if ($result->num_rows > 0) {
         return $result;
     }
@@ -147,15 +147,15 @@ function compteurInstru($con)
 {
     $admin_id = $_SESSION["admin_id"];
     $sql = "SELECT count(id) FROM instruments where id_admin = '$admin_id'";
-    $result = $con->query($sql);
+    $result = mysqli_query($con, $sql);
     $res = mysqli_fetch_assoc($result);
     return $res;
 }
 function compteurAdmins($con)
 {
-    $admin_id = $_SESSION["admin_id"];
+
     $sql = "SELECT count(id) FROM admins";
-    $result = $con->query($sql);
+    $result = mysqli_query($con, $sql);
     $res = mysqli_fetch_assoc($result);
     return $res;
 }

@@ -5,15 +5,11 @@ $password                 ="";
 $database                 ="instruments_de_music";
 
 $con                      = mysqli_connect($servername, $username, $password, $database);
-if ($con->connect_errno) {
-    echo("Connection failed: " . $con->connect_error);
-  }
- 
-  
 
-
-
-
+// Check connection
+if (!$con) {
+  die("Connection failed: " . mysqli_connect_error());
+}
 ?>
 
 

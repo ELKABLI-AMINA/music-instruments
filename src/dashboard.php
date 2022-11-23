@@ -3,7 +3,7 @@ include("scripts.php");
 $countInstru = compteurInstru($con)['count(id)'];
 $countAdmins = compteurAdmins($con)['count(id)'];
 // die;
-if (isset($_SESSION['admin_id'])) {
+if (isset($_SESSION['admin_id'])){
 } else {
    header("location:index.php");
 }
@@ -25,23 +25,23 @@ if (isset($_SESSION['admin_id'])) {
    <title>Dashboard</title>
 </head>
 
-<body style="background-color: #cfe2ff" class="">
+<body style="background-color: #cfe2ff">
    <header>
       <nav class="navbar w-100">
-         <div class="container-fluid d-flex" style="justify-content: space-between; width: 95%; margin-right: auto">
+         <div class="container-fluid d-flex" style="justify-content: space-between; width: 95%;">
             <div class="d-flex mt-2">
-               <i style="font-size: 30px" class="bi bi-file-earmark-music-fill icon-music "></i>
-               <h2>Musical Instruments</h2>
+               <i style="font-size: 30px" class="bi bi-file-earmark-music-fill icon-music"></i>
+               <h2 class="pt-2">M Instruments</h2>
             </div>
-            <div class="d-flex justify-content ">
-               <div class="d-flex" style="width: 30%">
+            <div class="d-flex">
+               <div class="d-flex " style="width: 30%;float:right">
                   <div class="d-flex mt-4 ">
-                     <span style="width: 10px; height: 10px; display: flex" class="bg-success rounded-circle mt-2 me-1"></span>
-                     <h5 class="me-2"><?php echo $_SESSION["admin_last"] ?></h5>
+                     <span style="width: 10px; height: 10px" class="bg-success rounded-circle mt-2 me-1 ms-4"></span>
+                     <h5 class="me-2 " ><?php echo $_SESSION["admin_last"] ?></h5>
                   </div>
 
                   <div class="btn-group dropstart">
-                     <img class="rounded-circle mt-2 " style="width: 55px;" src="img/connecter.jpg " alt="" data-bs-toggle="dropdown" aria-expanded="false" />
+                     <img class="rounded-circle mt-2 " width="55px" src="img/connecter.jpg " alt="" data-bs-toggle="dropdown" aria-expanded="false" />
                      <ul class="dropdown-menu">
                         <li class="list-group-item" style="height:20px"> <a class="text-decoration-none p-0" aria-pressed="true" data-bs-toggle="modal" data-bs-target="#exampleModal1" href="">Show & Edit Account</a></li>
                         <hr>
@@ -159,7 +159,7 @@ if (isset($_SESSION['admin_id'])) {
       </aside>
       <section class="w-100 p-3">
 
-         <div class="w-100 text-center">
+         <div class="w-100 ">
             <div style="
                      height: 120px;
                      width: 95%;
@@ -167,7 +167,8 @@ if (isset($_SESSION['admin_id'])) {
                      background-image: url('img/music.jpg');
                      background-size: cover;
                      background-position: center;
-                  "></div>
+                  ">
+            </div>
          </div>
          <!-- cards -->
          <div class="row mt-4  mb-2 ms-4 justify-content-center" style="max-width: 97%;">
@@ -221,7 +222,7 @@ if (isset($_SESSION['admin_id'])) {
                   <div class="card-header row">
                      <div class="col-8" data-bs-toggle="modal" data-bs-target="#exampleModal6">
                         <h4 class="card-title">
-                         <?php echo"$countAdmins" ?> <br />
+                           <?php echo "$countAdmins" ?> <br />
                            Admins
                         </h4>
                      </div>
@@ -318,7 +319,8 @@ if (isset($_SESSION['admin_id'])) {
                               </div>
                               <div class="mb-3">
                                  <label for="">Price:</label> <br />
-                                 <input type="number" name="price" class="form-control" id="price" min="1" step=".01" />
+                                 <input type="number" name="price" class="form-control" id="price" />
+
                               </div>
                               <div class="mb-3">
                                  <label for="recipient-name" class="col-form-label">Quantity</label>
@@ -362,9 +364,10 @@ if (isset($_SESSION['admin_id'])) {
                         // foreach ($result as $row) {
                         //    # code...
                         // }
+                        $cont =1;
                         while ($row  = mysqli_fetch_assoc($result)) { ?>
                            <tr>
-                              <th scope="row">1</th>
+                              <th scope="row"><?php echo $cont;?></th>
                               <td>
                                  <p class="text-truncate" style="width:200px"><?php echo $row["name"] ?></p>
                               </td>
@@ -377,7 +380,7 @@ if (isset($_SESSION['admin_id'])) {
                               <td>
                                  <div class="d-flex">
                                     <button class="btn btn-primary me-1" data-bs-toggle="modal" data-bs-target="#exampleModal10" onclick="display(<?php echo $row['id']; ?>,`<?php echo $row['name']; ?>`,`<?php echo $row['description']; ?>`,<?php echo $row['price']; ?>,<?php echo $row['quantity'] ?>,`<?php echo $row['image']; ?>`,<?php echo $row['id_admin']; ?>);">
-                                       View & Edit
+                                        Edit
                                     </button>
                                     <form action="" method="POST">
                                        <input type="hidden" name="id" value="<?php echo $row['id'] ?> ">
@@ -386,7 +389,7 @@ if (isset($_SESSION['admin_id'])) {
                                  </div>
                               </td>
                            </tr>
-                        <?php } ?>
+                        <?php $cont++; } ?>
 
                      </tbody>
                   </table>
