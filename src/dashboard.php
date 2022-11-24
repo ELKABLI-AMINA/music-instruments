@@ -3,7 +3,7 @@ include("scripts.php");
 $countInstru = compteurInstru($con)['count(id)'];
 $countAdmins = compteurAdmins($con)['count(id)'];
 // die;
-if (isset($_SESSION['admin_id'])){
+if (isset($_SESSION['admin_id'])) {
 } else {
    header("location:index.php");
 }
@@ -27,17 +27,17 @@ if (isset($_SESSION['admin_id'])){
 
 <body style="background-color: #cfe2ff">
    <header>
-      <nav class="navbar w-100">
-         <div class="container-fluid d-flex" style="justify-content: space-between; width: 95%;">
+      <nav class="navbar w-100 d-flex ">
+         <div class="container d-flex">
             <div class="d-flex mt-2">
                <i style="font-size: 30px" class="bi bi-file-earmark-music-fill icon-music"></i>
-               <h2 class="pt-2">M Instruments</h2>
+               <h3 class="pt-2">RockStar</h3>
             </div>
             <div class="d-flex">
-               <div class="d-flex " style="width: 30%;float:right">
+               <div class="d-flex m-auto">
                   <div class="d-flex mt-4 ">
                      <span style="width: 10px; height: 10px" class="bg-success rounded-circle mt-2 me-1 ms-4"></span>
-                     <h5 class="me-2 " ><?php echo $_SESSION["admin_last"] ?></h5>
+                     <h5 class="me-2 "><?php echo $_SESSION["admin_last"] ?></h5>
                   </div>
 
                   <div class="btn-group dropstart">
@@ -54,7 +54,7 @@ if (isset($_SESSION['admin_id'])){
                   </div>
                   <!-- modal edit -->
                   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                     <div class="modal-dialog">
+                     <div class="modal-dialog ">
                         <div class="modal-content">
                            <div class="modal-header">
                               <h5 class="modal-title" id="exampleModalLabel">Edit Profil</h5>
@@ -171,7 +171,7 @@ if (isset($_SESSION['admin_id'])){
             </div>
          </div>
          <!-- cards -->
-         <div class="row mt-4  mb-2 ms-4 justify-content-center" style="max-width: 97%;">
+         <div class="row mt-4  mb-2 ms-1 justify-content-center" style="max-width: 97%;">
             <div class="col-12 col-md-3 ">
                <div class="card">
                   <div class="card-header row">
@@ -364,32 +364,37 @@ if (isset($_SESSION['admin_id'])){
                         // foreach ($result as $row) {
                         //    # code...
                         // }
-                        $cont =1;
-                        while ($row  = mysqli_fetch_assoc($result)) { ?>
-                           <tr>
-                              <th scope="row"><?php echo $cont;?></th>
-                              <td>
-                                 <p class="text-truncate" style="width:200px"><?php echo $row["name"] ?></p>
-                              </td>
-                              <td>
-                                 <p class="text-truncate" style="width:200px"><?php echo $row["description"] ?></p>
-                              </td>
-                              <td><?php echo $row["price"] ?></td>
-                              <td><?php echo $row["quantity"] ?></td>
-                              <td><img style="width:60px;" src="img/<?php echo $row["image"] ?>"></td>
-                              <td>
-                                 <div class="d-flex">
-                                    <button class="btn btn-primary me-1" data-bs-toggle="modal" data-bs-target="#exampleModal10" onclick="display(<?php echo $row['id']; ?>,`<?php echo $row['name']; ?>`,`<?php echo $row['description']; ?>`,<?php echo $row['price']; ?>,<?php echo $row['quantity'] ?>,`<?php echo $row['image']; ?>`,<?php echo $row['id_admin']; ?>);">
-                                        Edit
-                                    </button>
-                                    <form action="" method="POST">
-                                       <input type="hidden" name="id" value="<?php echo $row['id'] ?> ">
-                                       <button type="submit" name="delete" class="btn btn-danger">Delete</button>
-                                    </form>
-                                 </div>
-                              </td>
-                           </tr>
-                        <?php $cont++; } ?>
+                        $cont = 1;
+                        if ($result === 1) {
+                           echo " <br> <tr> <h2 class='text-danger'>  No records </h2> </tr>";
+                        } else {
+                           while ($row  = mysqli_fetch_assoc($result)) { ?>
+                              <tr>
+                                 <th scope="row"><?php echo $cont; ?></th>
+                                 <td>
+                                    <p class="text-truncate" style="width:200px"><?php echo $row["name"] ?></p>
+                                 </td>
+                                 <td>
+                                    <p class="text-truncate" style="width:200px"><?php echo $row["description"] ?></p>
+                                 </td>
+                                 <td><?php echo $row["price"] ?></td>
+                                 <td><?php echo $row["quantity"] ?></td>
+                                 <td><img style="width:60px;" src="img/<?php echo $row["image"] ?>"></td>
+                                 <td>
+                                    <div class="d-flex">
+                                       <button class="btn btn-primary me-1" data-bs-toggle="modal" data-bs-target="#exampleModal10" onclick="display(<?php echo $row['id']; ?>,`<?php echo $row['name']; ?>`,`<?php echo $row['description']; ?>`,<?php echo $row['price']; ?>,<?php echo $row['quantity'] ?>,`<?php echo $row['image']; ?>`,<?php echo $row['id_admin']; ?>);">
+                                          Edit
+                                       </button>
+                                       <form action="" method="POST">
+                                          <input type="hidden" name="id" value="<?php echo $row['id'] ?> ">
+                                          <button type="submit" name="delete" class="btn btn-danger">Delete</button>
+                                       </form>
+                                    </div>
+                                 </td>
+                              </tr>
+                        <?php $cont++;
+                           }
+                        } ?>
 
                      </tbody>
                   </table>
@@ -422,7 +427,7 @@ if (isset($_SESSION['admin_id'])){
                               <div class="mb-3">
                                  <label for="recipient-name" class="col-form-label">Photo</label>
                                  <input type="file" accept="image/png ,image/jpg, image/jpeg" name="image" id="image10" name="photo">
-                                 <input type="hidden" name="tmp_image" id="tmp_imagze">
+                                 <input type="hidden" name="tmp_image" id="tmp_image">
                                  <input type="hidden" name="id_i" id="id_i">
                               </div>
 

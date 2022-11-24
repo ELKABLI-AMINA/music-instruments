@@ -72,11 +72,15 @@ function aside_left(e){
     inst.style.display       ="none";
     rightt.style.display     ="block";
     leftt.style.display      ="none";
+
+   
 }
 function aside_right(e){
     e.preventDefault();
     dash.style.display       ="block";
+   
     inst.style.display       ="block";
+
     leftt.style.display      ="block";
     rightt.style.display     ="none";
     
@@ -254,16 +258,12 @@ function display(id,name,description,price,quantity,image,admin_id){
     let description10             = document.getElementById("description10");
     let price10                   = document.getElementById("price10");
     let quantity10                = document.getElementById("quantity10");
-   // document.getElementById("tmp_image").value = image;
+    document.getElementById("tmp_image").value = image;
     document.getElementById("id_i").value = id // id_i = id instrument
     name10.value             = name;
     description10.value      = description;
     price10.value            = price;
     quantity10.value         = quantity;
-    
-    
-    
-
 }
 
 

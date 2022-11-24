@@ -67,10 +67,7 @@ function signin($con)
         $_SESSION["admin_email"] = $row["email"];
         $_SESSION["admin_password"] = $row["password"];
         $_SESSION["admin_image"] = $row["image"];
-        setcookie("email", $emailaddressi, time() + 3600);
-        setcookie("password", $passwordi, time() + 3600);
-
-
+     
         header("location:dashboard.php");
     } else {
         header("location:index.php");
@@ -102,6 +99,9 @@ function display($con)
     $result = mysqli_query($con, $sql);
     if (mysqli_num_rows($result) > 0) {
         return $result;
+    }
+    else{
+        return 1;
     }
 }
 function delete($con)
